@@ -2,7 +2,6 @@ import React from "react";
 
 const RoundTile = (props) => {
     let round = props.round
-    // debugger
 
     return (
       <div className="roundTile">
