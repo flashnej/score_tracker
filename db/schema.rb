@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_131913) do
+ActiveRecord::Schema.define(version: 2021_04_02_140917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "par", null: false
+    t.integer "slope_rating", null: false
+    t.float "course_rating", null: false
+    t.integer "hole_one_par"
+    t.integer "hole_two_par"
+    t.integer "hole_three_par"
+    t.integer "hole_four_par"
+    t.integer "hole_five_par"
+    t.integer "hole_six_par"
+    t.integer "hole_seven_par"
+    t.integer "hole_eight_par"
+    t.integer "hole_nine_par"
+    t.integer "hole_ten_par"
+    t.integer "hole_eleven_par"
+    t.integer "hole_twelve_par"
+    t.integer "hole_thirteen_par"
+    t.integer "hole_fourteen_par"
+    t.integer "hole_fifteen_par"
+    t.integer "hole_sixteen_par"
+    t.integer "hole_seventeen_par"
+    t.integer "hole_eighteen_par"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.integer "score", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_rounds_on_course_id"
+    t.index ["user_id"], name: "index_rounds_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
