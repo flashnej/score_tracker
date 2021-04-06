@@ -5,6 +5,7 @@ import RoundTile from "../components/RoundTile"
 
 const Home = (props) => {
     const [rounds, setRounds] = useState([])
+    const [forceSignin, setForceSignin] = useState(false)
 
     useEffect(() => {
         fetch('/api/v1/rounds')
@@ -17,9 +18,18 @@ const Home = (props) => {
         })
         .then((response) => response.json())
         .then((body) => {
-            setRounds(body)
+            if (body.error) {
+                setForceSignin(true)
+            } else {
+                setRounds(body)
+            }
         })
     }, [])
+
+    if (forceSignin) {
+        return window.location = "./users/sign_up";
+    }
+
     let roundTiles = []
     if (rounds.length) {
         roundTiles = rounds.map((round) => {
