@@ -15,8 +15,15 @@
  *= require foundation_and_overrides
 
  */
-
+.app{
+    margin:40px;
+}
 
  .roundTile {
      background-color: red;
+     margin: 5px;
+ }
+
+ .button {
+     margin-right: 40px;
  }

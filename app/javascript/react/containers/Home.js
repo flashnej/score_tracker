@@ -41,9 +41,18 @@ const Home = (props) => {
 
     return (
       <div>
-          <Link to='/addcourse' className="button">Add a Course</Link>
-          <Link to='/addround' className="button">Add a Round</Link>
-          {roundTiles}
+          <div className="grid-x">
+              <div className="cell small-6">
+                    <Link to='/addcourse' className="button">Add a Course</Link>
+              </div>
+              <div className="</div>">
+                    <Link to='/addround' className="button">Add a Round</Link>
+              </div>
+          </div>
+        
+          <div className="grid-x">
+            {roundTiles}
+          </div>
       </div>
     );
 };
